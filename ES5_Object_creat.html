@@ -6,7 +6,18 @@
 </head>
 <body>
 <script>
-
+   function Parent(name,age) {
+       this.name = name;
+       this.age = age;
+   }
+   Child.prototype = Object.create(Parent.prototype);
+//Child.prototype = new Parent();
+   Child.prototype.constructor = Child;
+   function Child(name,age) {
+       Parent.call(this,name,age)
+   }
+   var child = new Child('kobe',18);
+   console.log(child);
 </script>
 </body>
 </html>
