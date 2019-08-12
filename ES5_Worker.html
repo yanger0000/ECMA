@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<input type="text" id="txt"> <br>
+<button id="btn">按钮</button>
+<script>
+//webworkers 分线程
+  var btn = document.querySelector('#btn');
+
+  function webworker(txt) {
+      return txt<3 ? 1 : webworker(txt-2) + webworker(txt-1);
+  }
+btn.onclick = function (event) {
+    var txt = document.querySelector('#txt').value;
+    var work = new Worker('webworkers.js');
+    work.postMessage(txt);
+    work.onmessage = function (event) {
+        alert(event.data)
+    }
+}
+</script>
+</body>
+</html>
