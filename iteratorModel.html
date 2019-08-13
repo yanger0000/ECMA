@@ -6,13 +6,17 @@
 </head>
 <body>
 <script>
-
+//这里隐含着两个this
+// 1.this指的是遍历器
+// 2.原本this指向的指针强制换成遍历器的
 function interator_model() {
     let index = 0;
     let that = this;
+//    console.log(this) 数组的元素
     if(that instanceof Array){
         return {
             next () {
+//            console.log(this)指向的是指针
                 return {
                     value:that[index++],
                     done: index - 1 < that.length ? false : true
