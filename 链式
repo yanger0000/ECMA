@@ -1,2 +1,6 @@
 return 的是自己
-层层回调的嵌套函数
+层层回调的嵌套函数(回调地狱) 一层套着一层调用
+ 解决方案：async + await
+ Promise
+ .then{}
+ .catch{}

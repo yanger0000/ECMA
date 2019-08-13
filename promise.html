@@ -25,7 +25,7 @@ function timeOut() {
     })
 }
 Promise
-    .race([imgload(),timeOut()])
+    .race([imgload(),timeOut()])//哪个跑的快执行哪个
     .then((resolve) => {
      console.log(resolve)
     })
