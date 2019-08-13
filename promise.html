@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise对象</title>
+</head>
+<body>
+<div id="imgsrc"></div>
+<script>
+function imgload() {
+    return new Promise((resolve,reject) => {
+        let img = new Image();
+        img.onload = () => {
+            resolve('图片加载成功');
+        }
+        img.src = 'img/about1.jpg'
+    });
+
+}
+function timeOut() {
+    return new Promise((resolve,reject) => {
+       setTimeout(() => {
+          reject('图片加载失败');
+       },5000)
+    })
+}
+Promise
+    .race([imgload(),timeOut()])
+    .then((resolve) => {
+     console.log(resolve)
+    })
+    .catch((reject) => {
+         console.log(reject)
+    })
+</script>
+</body>
+</html>
