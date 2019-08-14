@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+<body>
+<script>
+    class Person{
+       constructor(name,age){
+       this.name = name;
+       this.age = age;
+       }
+       eat(){
+          console.log('想吃排骨');
+       }
+    }
+    class Student extends Person {
+      constructor (name,age,sex){
+        super(name,age)
+        this.sex = sex;
+      }
+    }
+    var student = new Student('kobe',18,'男');
+    console.log(student);
+</script>
+</body>
+</html>
